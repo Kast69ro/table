@@ -13,7 +13,7 @@ export default function App() {
   const [age, setAge] = useState("");
   const [status, setStatus] = useState(false);
   const [search, setSearch] = useState("");
-  const [filterStatus, setFilterStatus] = useState("all"); // фильтр по статусу
+  const [filterStatus, setFilterStatus] = useState("all"); 
   const [edit, setEdit] = useState(false);
   const [editUser, setEditUser] = useState(null);
 
@@ -58,7 +58,6 @@ export default function App() {
     setEditUser(null);
   }
 
-  // Фильтрация по имени и статусу (с правильной логикой)
   const filterData = data.filter((user) => {
     const nameMatch = user.name.toLowerCase().includes(search.toLowerCase());
     const statusMatch =
@@ -76,7 +75,6 @@ export default function App() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      {/* Фильтр по статусу */}
       <select
         value={filterStatus}
         onChange={(e) => setFilterStatus(e.target.value)}
@@ -93,7 +91,6 @@ export default function App() {
         onChange={(e) => setName(e.target.value)}
         required
       />
-      {/* Важно: здесь приводим к булевому */}
       <select onChange={(e) => setStatus(e.target.value === "true")} value={String(status)}>
         <option value="false">Inactive</option>
         <option value="true">Active</option>
